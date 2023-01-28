@@ -1,0 +1,13 @@
+{{ $author :=  or (.Site.Params.Author) (.Site.Author.name) }}
+<hr>
+<footer>
+    <nav>
+      <ul>
+        <li>
+        © {{ dateFormat "2006" now }} {{ $author }}
+        </li>
+        <li>
+        </li>
+      </ul>
+    </nav>
+</footer>

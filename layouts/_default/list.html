@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="en">
-  {{ partial "head.html" . }}
-<body>
-  <main>
-    {{ partial "header.html" . }}
-    <section>
-
+{{ define "main" }}
       <ul class="posts">
         {{ range (.Paginate ( where .Site.RegularPages "Section" "posts" ).ByDate.Reverse).Pages }}
           {{ if ne .Kind "section" }}
@@ -17,9 +10,5 @@
           {{ end }}
         {{ end }}
       </ul>
-    </section>
+{{ end }}
 
-    {{ partial "footer.html" . }}
-  </main>
-</body>
-</html>

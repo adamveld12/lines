@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+    <head>
+        {{ partial "base/head.html" . }}
+
+        {{ partial "head.html" . }}
+
+        {{ block "head" . }}
+        {{ end }}
+    </head>
+    <body>
+        <main id="main" role="main">
+        {{ block "header" . }}
+        {{ end }}
+
+        {{ partial "base/header.html" . }}
+
+        {{ block "main" . }}
+        {{ end }}
+
+        {{ partial "base/footer.html" . }}
+
+        {{ block "footer" . }}
+        {{ end }}
+        </main>
+    </body>
+</html>
+
