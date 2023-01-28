@@ -1,4 +1,4 @@
-<header>
+<header id="nav">
     <nav>
       {{ $current := . }}
       <ul>
@@ -13,9 +13,30 @@
           <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>{{ $name }}</a>
         </li>
       {{ end }}
+
       </ul>
     </nav>
+    <section>
+      <span id="toggle-scheme" class="lnr lnr-sun"></span>
+    </section>
 </header>
 <hr>
+<script>
+(function(){
+  const ls = window.localStorage;
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
+  const toggleScheme = () => {
+    const scheme = prefersDarkScheme ? "light" : "dark";
+    if (document.body.classList.toggle(scheme)) {
+      ls.setItem('scheme', scheme);
+    } else {
+      ls.removeItem('scheme');
+    }
+  }
 
+  const scheme = ls.getItem('scheme');
+  scheme && document.body.classList.toggle(scheme);
+  document.getElementById("toggle-scheme").addEventListener('click', toggleScheme);
+}())
+</script>

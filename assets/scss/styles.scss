@@ -1,6 +1,5 @@
 *,:after,:before {
 	box-sizing:border-box;
-	/*margin:0;*/
 	padding:0;
 }
 
@@ -9,17 +8,26 @@ body {
 	text-rendering: optimizeSpeed;
 	--text-color: #353535;
 	--background-color: #fff;
-	// --anchor-color: #0033cc;
 	background-color: var(--background-color);
 	color: var(--text-color);
+}
+
+body.dark {
+	--text-color: #eee;
+	--background-color: #121212;
 }
 
 @media (prefers-color-scheme: dark) {
 	body {
 	--text-color: #eee;
 	--background-color: #121212;
-	//   --anchor-color: #809fff;
 	}
+
+	body.light {
+	--text-color: #353535;
+	--background-color: #fff;
+	}
+
 }
 
 .posts hr {
@@ -111,6 +119,17 @@ header ul, footer ul {
     display: flex;
 }
 
+#nav section {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#toggle-scheme:hover {
+	cursor: pointer;
+}
 
 [aria-current="page"] {
 	//font-weight: bold;
